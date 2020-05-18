@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, make_response
-from main_2 import run_example
+from main import main, main2
+# from main import run_example
 app = Flask(__name__)
 
 
@@ -14,7 +15,7 @@ def welcome():
 
 @app.route("/plot", methods=["POST"])
 def plot():
-    return render_template('layout.html', img_source=run_example())
+    return render_template('layout.html', img_source=main(), img_source_2=main2())
 
 
 if __name__ == "__main__":
