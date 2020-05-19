@@ -48,6 +48,11 @@ class Array:
         str_value = str_value[:-1] + ']'
         return str_value
 
+    def slice(self, start_index, end_index):
+        lst = [self[i] for i in range(len(self)) if start_index <= i < end_index]
+        arr = Array(len(lst))
+        arr.push_list(lst)
+        return arr
 
 
 # An iterator for the Array ADT.

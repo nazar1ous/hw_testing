@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, make_response, redirect
-from processor import plot_portfolio, plot_ratio_change
+from flask import Flask, render_template, request, redirect
+from modules.processor import plot_portfolio, plot_ratio_change
 import time
-from getter_data import get_names_from_data
+from modules.getter_data import get_names_from_data
 import datetime
 # from main import run_example
 app = Flask(__name__)
@@ -31,10 +31,7 @@ def plot():
         start = datetime.datetime(2016, 1, 1).strftime("%Y-%m-%d")
 
     end = datetime.date.today().strftime("%Y-%m-%d")
-    try:
-        invest_num = int(imp_numbers['inv_number'])
-    except ValueError:
-        invest_num = None
+    invest_num = imp_numbers['inv_number']
     return render_template('layout.html', img_source1=plot_portfolio(users_stocks, start, end, invest_num),
                            img_source2=plot_ratio_change(users_stocks, start, end, invest_num))
 
@@ -74,6 +71,7 @@ def stock_options():
 
 
 if __name__ == "__main__":
+    # Create local data server
     lst = []
     stocks_names = get_names_from_data('sources/stocks.csv')
     com_names = get_names_from_data('sources/commodities.csv')

@@ -1,6 +1,5 @@
-from stock_adt import Stock
-from stock_plotting import StockPlotting
-import datetime
+from structures.stock_adt import Stock
+from modules.stock_plotting import StockPlotting
 
 
 def plot_portfolio(stocks_names, start=None, end=None, invest_num=None):

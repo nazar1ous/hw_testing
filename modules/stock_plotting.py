@@ -1,8 +1,8 @@
 import io
 import base64
 import matplotlib.pyplot as plt
-from stock_analyzer_adt import StockAnalyzer
-from stock_adt import Stock
+from structures.stock_analyzer_adt import StockAnalyzer
+from structures.stock_adt import Stock
 
 
 class StockPlotting:

@@ -1,0 +1,15 @@
+#tv {
+    position: absolute;
+    top: 20%;
+    height: auto;
+    width: 1200px;
+    left:15%
+}
+
+#portfolio{
+    position: absolute;
+    top: 27.5%;
+    left: 19.8%;
+    height: 270px;
+    width: 475px;
+}

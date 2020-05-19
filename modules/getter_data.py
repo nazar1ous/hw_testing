@@ -11,4 +11,4 @@ def get_names_from_data(filename):
 
 
 if __name__ == "__main__":
-    print(get_names_from_data('sources/stocks.csv'))
+    print(get_names_from_data('../sources/stocks.csv'))

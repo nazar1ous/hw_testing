@@ -1,7 +1,6 @@
-from arrays import Array
-from stock_adt import Stock
+from structures.arrays import Array
+from structures.stock_adt import Stock
 import pandas as pd
-import numpy as np
 import datetime
 
 
@@ -11,7 +10,13 @@ class StockAnalyzer:
         for i, stock in enumerate(stocks):
             self._stocks[i] = Stock(stock.name, start, end)
         self._profitable = None
-        self._invest_num = invest_num
+        if invest_num:
+            try:
+                self._invest_num = int(invest_num)
+            except ValueError:
+                self._invest_num = None
+        else:
+            self._invest_num = None
 
     def process_stocks(self, tracker):
         stocks_rate = {}
@@ -23,7 +28,7 @@ class StockAnalyzer:
         self._profitable.push_list(most_profitable)
         if not self._invest_num or self._invest_num >= len(self._stocks):
             return self._profitable
-        return self._profitable[:self._invest_num]
+        return self._profitable.slice(0, self._invest_num)
 
     @staticmethod
     def get_combined_stock_dataframe(stocks, target_data):
