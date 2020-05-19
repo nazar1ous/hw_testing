@@ -6,14 +6,23 @@
 </head>
 
 <body>
-<img id="myImg" src="{{img_source1}}" alt="Northern Lights, Norway" width="300" height="200">
+<img class="myImg" id="myImg1" src="{{img_source1}}" alt="Estimated growth of your portfolio">
+<img class="myImg" id="myImg2" src="{{img_source2}}" alt="Estimated growth of your stocks">
+
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
+<div id="myModal1" class="modal">
+  <span class="close" id="s_close1">&times;</span>
   <img class="modal-content" id="img01">
-  <div id="caption"></div>
+  <div class="caption" id="caption1"></div>
 </div>
+
+<div id="myModal2" class="modal">
+  <span class="close" id="s_close2">&times;</span>
+  <img class="modal-content" id="img02">
+  <div class="caption" id="caption2"></div>
+</div>
+
 
 <!--{{name}}-->
 <script src="/static/scripts/final_results.js"></script>
