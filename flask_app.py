@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, make_response, redirect
 from modules.processor import plot_portfolio, plot_ratio_change
 import time
 from modules.getter_data import get_names_from_data
 import datetime
 # from main import run_example
 app = Flask(__name__)
-
 
 
 
@@ -24,14 +23,18 @@ def plot():
     d_number = imp_numbers['days_number']
     if d_number:
         try:
-            start = (datetime.date.today() - datetime.timedelta(days=int(d_number))).strftime("%Y-%m-%d")
+            start = (datetime.date.today() -
+                     datetime.timedelta(days=int(d_number))).strftime("%Y-%m-%d")
         except ValueError:
             start = datetime.datetime(2016, 1, 1).strftime("%Y-%m-%d")
     else:
         start = datetime.datetime(2016, 1, 1).strftime("%Y-%m-%d")
 
     end = datetime.date.today().strftime("%Y-%m-%d")
-    invest_num = imp_numbers['inv_number']
+    try:
+        invest_num = int(imp_numbers['inv_number'])
+    except ValueError:
+        invest_num = None
     return render_template('layout.html', img_source1=plot_portfolio(users_stocks, start, end, invest_num),
                            img_source2=plot_ratio_change(users_stocks, start, end, invest_num))
 
@@ -64,14 +67,21 @@ def check():
 @app.route("/stock_options", methods=["GET"])
 def stock_options():
     return render_template('stock_options.html', len_st=len(stocks_names),
-                           stocks_names=stocks_names, cb_stock_names=cb_stock_names, len_com=len(com_names),
-                           com_names=com_names, cb_com_names=cb_com_names, len_for=len(stocks_names),
-                           for_names=for_names, cb_for_names=cb_for_names, len_cur=len(cur_names),
+                           stocks_names=stocks_names, cb_stock_names=cb_stock_names, len_com=len(
+                               com_names),
+                           com_names=com_names, cb_com_names=cb_com_names, len_for=len(
+                               stocks_names),
+                           for_names=for_names, cb_for_names=cb_for_names, len_cur=len(
+                               cur_names),
                            cur_names=cur_names, cb_cur_names=cb_cur_names)
 
 
+@app.route("/about", methods=["GET"])
+def about():
+    return render_template("about.html")
+
+
 if __name__ == "__main__":
-    # Create local data server
     lst = []
     stocks_names = get_names_from_data('sources/stocks.csv')
     com_names = get_names_from_data('sources/commodities.csv')
@@ -88,4 +98,3 @@ if __name__ == "__main__":
     s = time.time()
     app.run(debug=True)
     print(time.time() - s)
-

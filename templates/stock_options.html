@@ -1,73 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head><title> First way to financial success </title>
-        <link href="static/styles/stock_options_styles.css" rel="stylesheet" type="text/css">
+
+<head>
+    <title> First way to financial success </title>
+    <link href="static/styles/stock_options_styles.css" rel="stylesheet" type="text/css">
+    <link href="static/styles/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<h1 style="text-align: center">Choose stocks you want to invest in</h1>
+    <div class="layer">
 
-<form action="{{ url_for('check') }}" method="post">
-    <div style="position: absolute; top: 100px;">
-        <h2>Trade Stocks</h2>
-        <ol>
-            {%for i in range(0, len_st)%}
-                <li>
-                    {{stocks_names[i]}}
-                        <label class="switch" style="position: relative; left: 1%;">
-                        <input type="checkbox" name={{cb_stock_names[i]}} value="{{stocks_names[i]}}"><span class="slider round"></span>
-                        </label>
+    <div class="ver" style="top: 11%; left: 29%"></div>
+    <div class="ver" style="top: 11%; left: 49%"></div>
+    <div class="ver" style="top: 11%; left: 69%"></div>
+    <div class="hor" style="top: 84%; left: 7%"></div>
+    </div>
+        <h1 style="font-size: 70px;">Choose preferable stocks to invest</h1>
 
-                </li>
-            {%endfor%}
-        </ol>
-    </div>
-    <div style="position: absolute; top: 100px;left: 20%;">
-        <h2>Forex Trading</h2>
-        <ol>
-            {%for i in range(0, len_for)%}
-                <li>
-                    {{for_names[i]}}<label class="switch" style="position: relative; left: 1%;">
-                        <input type="checkbox" name={{cb_for_names[i]}} value="{{for_names[i]}}"><span class="slider round"></span>
-                    </label>
-                </li>
-            {%endfor%}
-        </ol>
-    </div>
-    <div style="position: absolute; top: 100px;left: 40%;">
-        <h2>Cryptocurrency</h2>
-        <ol>
-            {%for i in range(0, len_cur)%}
-                <li>
-                    {{cur_names[i]}}<label class="switch" style="position: relative; left: 1%;">
-                        <input type="checkbox" name={{cb_cur_names[i]}} value="{{cur_names[i]}}"><span class="slider round"></span>
-                    </label>
-                </li>
-            {%endfor%}
-        </ol>
-    </div>
-    <div style="position: absolute; top: 100px;left: 60%;">
-        <h2>Commodities</h2>
-        <ol>
-            {%for i in range(0, len_com)%}
-                <li>
-                    {{com_names[i]}}<label class="switch" style="position: relative; left: 1%;">
-                        <input type="checkbox" name={{cb_com_names[i]}} value="{{com_names[i]}}"><span class="slider round"></span>
-                    </label>
-                </li>
-            {%endfor%}
-        </ol>
-    </div>
-    <div style="position: absolute; top: 60%; text-align: center;">
+        <form action="{{ url_for('check') }}" method="post">
+            <div style="position: absolute; top: 100px; left: 12%">
+                <h1 style="font-size: 55px;">Trade Stocks</h1>
+                <ol>
+                    {%for i in range(0, len_st)%}
+                    <li>
+                        <h1 style="font-size: 45px;">{{stocks_names[i]}}
+                            <label class="switch" style="position: relative; left: 1%;">
+                                <input type="checkbox" name={{cb_stock_names[i]}} value="{{stocks_names[i]}}"><span
+                                    class="slider round"></span>
+                        </label></h1>
 
-    <h2>Enter the number of stocks to invest in</h2>
-    <input name="investing_number" type="text">
-    <h2>Enter the number of days to get analysis for</h2>
-    <input name="days_number" type="text">
-        <button>Submit</button>
-    </div>
+                    </li>
+                    {%endfor%}
+                </ol>
+            </div>
+            <div style="position: absolute; top: 100px; left: 32%;">
+                <h1 style="font-size: 55px;">Forex Trading</h1>
+                <ol>
+                    {%for i in range(0, len_for)%}
+                    <li>
+                        <h1 style="font-size: 45px;">{{for_names[i]}}
+                            <label class="switch" style="position: relative; left: 1%;">
+                                <input type="checkbox" name={{cb_for_names[i]}} value="{{for_names[i]}}"><span
+                                    class="slider round"></span>
+                        </label></h1>
+                    </li>
+                    {%endfor%}
+                </ol>
+            </div>
+            <div style="position: absolute; top: 100px; left: 51%;">
+                <h1 style="font-size: 55px;">Cryptocurrency</h1>
+                <ol>
+                    {%for i in range(0, len_cur)%}
+                    <li>
+                        <h1 style="font-size: 45px;">{{cur_names[i]}}
+                            <label class="switch" style="position: relative; left: 1%;">
+                                <input type="checkbox" name={{cb_cur_names[i]}} value="{{cur_names[i]}}"><span
+                                    class="slider round"></span>
+                        </label></h1>
+                    </li>
+                    {%endfor%}
+                </ol>
+            </div>
+            <div style="position: absolute; top: 100px; left: 73%;">
+                <h1 style="font-size: 55px;">Commodities</h1>
+                <ol>
+                    {%for i in range(0, len_com)%}
+                    <li>
+                        <h1 style="font-size: 45px;">{{com_names[i]}}
+                            <label class="switch" style="position: relative; left: 1%;">
+                                <input type="checkbox" name={{cb_com_names[i]}} value="{{com_names[i]}}"><span
+                                    class="slider round"></span>
+                        </label></h1>
+                    </li>
+                    {%endfor%}
+                </ol>
+            </div>
+            <div>
+                <h1 style="font-size: 30px; position: absolute; top: 85%; left: 20%;">Enter the number of stocks you
+                    would like to invest in</h1>
+                <input name="investing_number" type="text" style="position: absolute; top: 90%; left: 30%;">
+                <h1 style="font-size: 30px; position: absolute; top: 90%; left: 22%;">Enter the number of days to get
+                    analysis for</h1>
+                <input name="days_number" type="text" style="position: absolute; top: 95%; left: 30%;">
+                <button class="button" style="position: absolute; top: 88%; left: 55%; padding: 10px 20px;">Submit your
+                    choice</button>
+            </div>
 
 
-</form>
+        </form>
+    
 </body>
+
 </html>

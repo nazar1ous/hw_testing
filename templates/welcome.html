@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head><title> First way to financial success </title>
+
+<head>
+        <title> First way to financial success </title>
         <link href="static/styles/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<h1 style="text-align: center">Everything can be changed! Give it a try, take your first step to your financial independence</h1>
-<img src="static/images/happy_people.jpg" alt="Nature" class="responsive" style="position: relative;
+        <h1 style="font-size: 50px;">Everything can be changed! Give it a try, take your first step to your financial
+                independence</h1>
+        <!-- <img src="static/images/happy_people.jpg" alt="Nature" class="responsive" style="position: relative;
  top: 10%;width: 100%; height: 100%;
-max-height: 400px;">
-<form action="{{ url_for('plot') }}" method="post" style="text-align: center">
-        <h2>Take action to run prog</h2>
-        <button>Submit</button>
+max-height: 400px;"> -->
+        <div class="wrapper">
+                <form action="{{ url_for('stock_options') }}" method="get"
+                        style="text-align: center;">
+                        <h1>Start creating your financial portfolio!</h1>
+                        <button class="button" style="padding: 150px 300px; font-size: 70px;">Create Portfolio</button>
+                </form>
+        </div>
 
-</form>
-
-<form action="{{ url_for('stock_options') }}" method="get" style="text-align: center">
-        <h2>Take1</h2>
-        <button>Submit</button>
-
-</form>
+        <div class="wrapper">
+                <form action="{{ url_for('about') }}" method="get"
+                        style="text-align: center;">
+                        <h1>Check out the about page</h1>
+                        <button class="button" style="padding: 50px 100px;">About Page</button>
+                </form>
+        </div>
 
 </body>
+
 </html>

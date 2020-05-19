@@ -1,3 +1,79 @@
 body{
-    background-color: green;
+    background-image: url('https://media1.giphy.com/media/JtBZm3Getg3dqxK0zP/giphy.gif?cid=ecf05e473b08738e40aa7076a19d9a700d0e797daa60e9df&rid=giphy.gif');
+    background-size: cover;
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+h1{
+    font-family: Cambria, Georgia, serif;
+    font-style: normal;
+    color: antiquewhite;
+    text-align: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 100px 200px;
+    font-family: Cambria, Georgia, serif;
+    font-style: normal;
+    font-size: 50px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: antiquewhite;
+    background-color: #47C2F0;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 15px #1467CB;
+}
+
+.button:hover {background-color: #0F99CD}
+
+.button:active {
+  background-color: #0F99CD;
+  box-shadow: 0 8px #1467CB;
+  transform: translateY(4px);
+}
+
+input[type=text]:focus {
+    border: 3px solid rgb(0, 44, 73);
+    background-color: lightblue;
+    position: center;
+}
+
+.layer {
+    background-color: rgba(15, 27, 36, 0.7);
+    position: absolute;
+    top: 11%;
+    left: 7%;
+    width: 85%;
+    height: 87%;
+}
+
+.ver {
+    height:73%;
+    width:2px;
+    background-color: rgba(3, 5, 7, 0.7);
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+}
+
+.hor {
+    height:2px;
+    width:85%;
+    background-color: rgba(3, 5, 7, 0.7);
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
 }
