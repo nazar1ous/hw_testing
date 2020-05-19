@@ -6,12 +6,20 @@
 
 <body>
 <h1 style="text-align: center">Everything can be changed! Give it a try, take your first step to your financial independence</h1>
-<img src="../static/images/happy_people.jpg" alt="Nature" class="responsive" style="position: relative;
+<img src="static/images/happy_people.jpg" alt="Nature" class="responsive" style="position: relative;
  top: 10%;width: 100%; height: 100%;
 max-height: 400px;">
 <form action="{{ url_for('plot') }}" method="post" style="text-align: center">
         <h2>Take action to run prog</h2>
         <button>Submit</button>
+
 </form>
+
+<form action="{{ url_for('stock_options') }}" method="get" style="text-align: center">
+        <h2>Take1</h2>
+        <button>Submit</button>
+
+</form>
+
 </body>
 </html>

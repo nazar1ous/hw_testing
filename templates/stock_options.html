@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head><title> First way to financial success </title>
+        <link href="static/styles/stock_options_styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1 style="text-align: center">Choose stocks you want to invest in</h1>
+
+<form action="{{ url_for('check') }}" method="post">
+    <div style="position: absolute; top: 100px;">
+        <h2>Trade Stocks</h2>
+        <ol>
+            {%for i in range(0, len_st)%}
+                <li>
+                    {{stocks_names[i]}}
+                        <label class="switch" style="position: relative; left: 1%;">
+                        <input type="checkbox" name={{cb_stock_names[i]}} value="{{stocks_names[i]}}"><span class="slider round"></span>
+                        </label>
+
+                </li>
+            {%endfor%}
+        </ol>
+    </div>
+    <div style="position: absolute; top: 100px;left: 20%;">
+        <h2>Forex Trading</h2>
+        <ol>
+            {%for i in range(0, len_for)%}
+                <li>
+                    {{for_names[i]}}<label class="switch" style="position: relative; left: 1%;">
+                        <input type="checkbox" name={{cb_for_names[i]}} value="{{for_names[i]}}"><span class="slider round"></span>
+                    </label>
+                </li>
+            {%endfor%}
+        </ol>
+    </div>
+    <div style="position: absolute; top: 100px;left: 40%;">
+        <h2>Cryptocurrency</h2>
+        <ol>
+            {%for i in range(0, len_cur)%}
+                <li>
+                    {{cur_names[i]}}<label class="switch" style="position: relative; left: 1%;">
+                        <input type="checkbox" name={{cb_cur_names[i]}} value="{{cur_names[i]}}"><span class="slider round"></span>
+                    </label>
+                </li>
+            {%endfor%}
+        </ol>
+    </div>
+    <div style="position: absolute; top: 100px;left: 60%;">
+        <h2>Commodities</h2>
+        <ol>
+            {%for i in range(0, len_com)%}
+                <li>
+                    {{com_names[i]}}<label class="switch" style="position: relative; left: 1%;">
+                        <input type="checkbox" name={{cb_com_names[i]}} value="{{com_names[i]}}"><span class="slider round"></span>
+                    </label>
+                </li>
+            {%endfor%}
+        </ol>
+    </div>
+    <div style="position: absolute; top: 60%; text-align: center;">
+
+    <h2>Enter the number of stocks to invest in</h2>
+    <input name="investing_number" type="text">
+    <h2>Enter the number of days to get analysis for</h2>
+    <input name="days_number" type="text">
+        <button>Submit</button>
+    </div>
+
+
+</form>
+</body>
+</html>

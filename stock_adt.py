@@ -5,12 +5,10 @@ import numpy as np
 
 
 class Stock:
-    def __init__(self, stock_name, start=datetime.datetime(2020, 1, 1),
-                 end=datetime.date.today()):
+    def __init__(self, stock_name, start=None, end=None):
         self.name = stock_name
         self._data = pd.DataFrame()
-        self.start = datetime.datetime(2020, 1, 1)
-        self.end = datetime.date.today()
+        self.start, self.end = start, end
         self.process_yf()
         self._ratio_change = None
         self.profit = None

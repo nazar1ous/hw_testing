@@ -1,6 +1,8 @@
 from arrays import Array
 from stock_adt import Stock
 import pandas as pd
+import numpy as np
+import datetime
 
 
 class StockAnalyzer:
@@ -19,7 +21,7 @@ class StockAnalyzer:
         most_profitable = sorted(stocks_rate.items(), key=lambda x: -x[1])
         self._profitable = Array(len(most_profitable))
         self._profitable.push_list(most_profitable)
-        if not self._invest_num:
+        if not self._invest_num or self._invest_num >= len(self._stocks):
             return self._profitable
         return self._profitable[:self._invest_num]
 
@@ -47,16 +49,12 @@ class StockAnalyzer:
             self.process_stocks(tracker)
         combined_df = self.get_combined_stock_dataframe([item[0] for item in self._profitable],
                                                         target_data=tracker)
-        sum_list = []
-        for index in combined_df.index:
-            sum_money = 0
-            for col in combined_df.columns:
-                sum_money += combined_df.loc[index][col]
-            sum_list.append(sum_money)
-        portfolio_df = pd.DataFrame(sum_list, columns=['Portfolio'])
+        portfolio_df = pd.DataFrame(combined_df.sum(axis=1, skipna=True), columns=['Portfolio'])
         return portfolio_df
 
 
 if __name__ == '__main__':
-    a = StockAnalyzer(['AAPL', 'MSFT'])
+    s, e = '2020-1-1', datetime.date.today().strftime('%Y-%m-%d')
+    a = StockAnalyzer([Stock('AAPL', s, e), Stock('MSFT', s, e)])
     print(a.process_stocks('Adj Close'))
+    print(a.get_portfolio_df('Adj Close'))

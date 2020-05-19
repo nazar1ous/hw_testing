@@ -6,9 +6,9 @@ from stock_adt import Stock
 
 
 class StockPlotting:
-    def __init__(self, lst_stocks, target_data):
+    def __init__(self, lst_stocks, target_data, start, end, invest_num):
         self._stocks = lst_stocks
-        self.analyzer = StockAnalyzer(lst_stocks, target_data)
+        self.analyzer = StockAnalyzer(lst_stocks, start, end, invest_num=invest_num)
         self._data = StockAnalyzer.get_combined_stock_dataframe(lst_stocks, target_data)
         self.tracker = target_data
 
@@ -47,4 +47,5 @@ def main():
     plotter = StockPlotting(stocks, 'Adj Close')
     # plotter.plot_ratio()
     plotter.plot_portfolio()
+
 # main()
